@@ -30,7 +30,11 @@
         android:id="@+id/profileFragment"
         android:name="com.example.businessbanking.view.main_fragments.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.example.businessbanking.view.main_fragments.AccountFragment"
