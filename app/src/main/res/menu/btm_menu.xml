@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/accountFragment"
+        android:icon="@drawable/ic_accounts"
+        android:title="Счета" />
+
+    <item
+        android:id="@+id/transfer"
+        android:icon="@drawable/ic_transfer"
+        android:title="Переводы"
+        />
+
+<!--    <item-->
+<!--        android:id="@+id/buga"-->
+<!--        android:icon="@drawable/ic_bug"-->
+<!--        android:title="Бухгалтерия" />-->
+
+<!--    <item-->
+<!--        android:id="@+id/zayav"-->
+<!--        android:icon="@drawable/ic_zayav"-->
+<!--        android:title="Заявления" />-->
+
+<!--    <item-->
+<!--        android:id="@+id/samples"-->
+<!--        android:icon="@drawable/ic_samples"-->
+<!--        android:title="Шаблоны"/>-->
+
+<!--    <item-->
+<!--        android:id="@+id/docs"-->
+<!--        android:icon="@drawable/ic_docs"-->
+<!--        android:title="Справочники" />-->
+
+    <item
+        android:id="@+id/noti"
+        android:icon="@drawable/ic_noti"
+        android:title="Уведомления"/>
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_profile"
+        android:title="Пользователь"
+        />
+</menu>
