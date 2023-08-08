@@ -7,7 +7,6 @@ plugins {
 apply plugin: "androidx.navigation.safeargs"
 
 android {
-    namespace 'com.example.businessbanking'
     compileSdk 33
 
     defaultConfig {
