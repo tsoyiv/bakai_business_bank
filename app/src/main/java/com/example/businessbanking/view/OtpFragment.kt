@@ -9,18 +9,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.businessbanking.R
-import com.example.businessbanking.databinding.FragmentLoginBinding
+import com.example.businessbanking.databinding.FragmentOtpBinding
 
-class LoginFragment : Fragment() {
+class OtpFragment : Fragment() {
 
-    private lateinit var binding: FragmentLoginBinding
+    private lateinit var binding: FragmentOtpBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        binding = FragmentOtpBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -34,11 +34,11 @@ class LoginFragment : Fragment() {
 
         val instructionLink = "https://ib.bakai.kg/Content/files/instructions.pdf"
 
-        binding.btnLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_otpFragment)
+        binding.btnReturnLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_otpFragment_to_loginFragment)
         }
 
-        binding.btnCheckInstrLogin.setOnClickListener {
+        binding.btnCheckInstrOtp.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(instructionLink))
             startActivity(intent)
         }
