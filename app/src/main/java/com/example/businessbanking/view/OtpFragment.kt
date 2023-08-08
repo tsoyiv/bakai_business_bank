@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.businessbanking.MainActivity
 import com.example.businessbanking.R
 import com.example.businessbanking.databinding.FragmentOtpBinding
 
@@ -26,6 +27,7 @@ class OtpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (requireActivity() as MainActivity).hide()
 
         navigation()
     }
@@ -41,6 +43,10 @@ class OtpFragment : Fragment() {
         binding.btnCheckInstrOtp.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(instructionLink))
             startActivity(intent)
+        }
+
+        binding.btnOtp.setOnClickListener {
+            findNavController().navigate(R.id.action_otpFragment_to_profileFragment)
         }
     }
 }
