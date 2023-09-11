@@ -15,6 +15,7 @@ import com.example.businessbanking.R
 import com.example.businessbanking.databinding.FragmentLoginBinding
 import com.example.businessbanking.presenter.LoginContract
 import com.example.businessbanking.presenter.LoginPresenter
+import com.google.firebase.messaging.FirebaseMessaging
 
 class LoginFragment : Fragment(), LoginContract.View {
 
@@ -40,8 +41,9 @@ class LoginFragment : Fragment(), LoginContract.View {
 
     private fun authSetup() {
         navController = findNavController()
+        val firebaseMessaging = FirebaseMessaging.getInstance()
 
-        presenter = LoginPresenter(this, navController)
+        presenter = LoginPresenter(this, navController, firebaseMessaging)
         val localPresenter = presenter
         binding.btnLogin.setOnClickListener {
             val username = binding.editTextLogin.text.toString()
@@ -49,6 +51,19 @@ class LoginFragment : Fragment(), LoginContract.View {
             localPresenter.performLogin(username, password)
         }
     }
+
+
+//    private fun authSetup() {
+//        navController = findNavController()
+//
+//        presenter = LoginPresenter(this, navController)
+//        val localPresenter = presenter
+//        binding.btnLogin.setOnClickListener {
+//            val username = binding.editTextLogin.text.toString()
+//            val password = binding.editTextPassword.text.toString()
+//            localPresenter.performLogin(username, password)
+//        }
+//    }
 
     override fun onLoginSuccess(token: String) {
         binding.btnLogin.setOnClickListener {
