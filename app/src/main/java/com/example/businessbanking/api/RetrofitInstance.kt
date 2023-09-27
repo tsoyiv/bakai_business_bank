@@ -6,6 +6,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import java.util.concurrent.TimeUnit
 
 class RetrofitInstance {
@@ -28,6 +29,9 @@ class RetrofitInstance {
         }
         val apiAuth by lazy {
             retrofit.create(AuthApi::class.java)
+        }
+        val apiAccount by lazy {
+            retrofit.create(AccountApi::class.java)
         }
     }
 }

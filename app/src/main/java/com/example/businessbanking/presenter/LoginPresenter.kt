@@ -15,12 +15,22 @@ import retrofit2.Response
 class LoginPresenter(
     private val view: LoginContract.View,
     private val navController: NavController,
-    private val firebaseMessaging: FirebaseMessaging
+    private val firebaseMessaging: FirebaseMessaging // Inject FirebaseMessaging
 ) : LoginContract.Presenter {
 
-    override fun performLogin(login: String, password: String) {
-        val loginRequest = LoginRequest(login, password)
+    override fun performLogin(login: String, password: String, fcmToken: String) {
+        val loginRequest = LoginRequest(login, password, fcmToken)
         val call = RetrofitInstance.apiAuth.login(loginRequest)
+
+        firebaseMessaging.token.addOnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                view.onLoginError("Failed to get FCM token")
+                return@addOnCompleteListener
+            }
+            val fcmToken = task.result
+            Log.d("FCM Token", "Received FCM Token: $fcmToken")
+            navController.navigate(R.id.otpFragment)
+        }
 
         call.enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
@@ -28,20 +38,8 @@ class LoginPresenter(
                     val token = response.body()?.token
                     val loginResponse = response.body()
                     if (token != null) {
-                        firebaseMessaging.token.addOnCompleteListener { task ->
-                            if (!task.isSuccessful) {
-                                view.onLoginError("Failed to get FCM token")
-                                return@addOnCompleteListener
-                            }
-
-                            // Get the FCM token
-                            val fcmToken = task.result
-                            Holder.access_token = token
-
-                            Log.d("FCM Token", "Received FCM Token: $fcmToken")
-
-                            navController.navigate(R.id.otpFragment)
-                        }
+                        Holder.access_token = token
+                        navController.navigate(R.id.otpFragment)
                     } else {
                         view.onLoginError("Token not received")
                     }
@@ -56,36 +54,3 @@ class LoginPresenter(
         })
     }
 }
-
-
-//class LoginPresenter(
-//    private val view: LoginContract.View,
-//    private val navController: NavController
-//) : LoginContract.Presenter {
-//
-//    override fun performLogin(login: String, password: String) {
-//        val loginRequest = LoginRequest(login, password)
-//        val call = RetrofitInstance.apiAuth.login(loginRequest)
-//
-//        call.enqueue(object : Callback<LoginResponse> {
-//            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-//                if (response.isSuccessful) {
-//                    val token = response.body()?.token
-//                    val loginResponse = response.body()
-//                    if (token != null) {
-//                        navController.navigate(R.id.otpFragment)
-//                        Holder.access_token = token
-//                    } else {
-//                        view.onLoginError("Token not received")
-//                    }
-//                } else {
-//                    view.onLoginError("Login failed")
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-//                view.onLoginError("Network error")
-//            }
-//        })
-//    }
-//}

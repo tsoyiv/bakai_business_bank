@@ -14,102 +14,224 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageButton
-            android:id="@+id/action_button_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="20dp"
-            android:background="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.956"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.059" />
-
         <TextView
-            android:id="@+id/txt_userAccount"
+            android:id="@+id/txt_typeOfAccount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="16dp"
             android:textColor="@color/black"
-            android:textSize="25sp"
+            android:textSize="15sp"
             android:layout_marginStart="16dp"
-            android:text="KGS 1234567891234567"
+            android:text="Расчетные счета:"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_amountMoney"
+            android:id="@+id/txt_currencyUSD"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="16dp"
-            android:text="70798.3 kgs"
+            android:text="USD"
+            android:textSize="15sp"
+            app:layout_constraintBaseline_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_typeOfAccount" />
+
+        <TextView
+            android:id="@+id/txt_nameAccountUSD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            android:text="Банковские счета юридических лиц"
+            android:textSize="15sp"
+            app:layout_constraintBaseline_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_currencyUSD" />
+
+        <TextView
+            android:id="@+id/txt_usdNumberAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            android:text="1240020000000001"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            app:layout_constraintBaseline_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nameAccountUSD" />
+
+        <TextView
+            android:id="@+id/txt_amountMoneyUsd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            android:text="70798.3"
             android:textSize="20sp"
             android:textColor="#03A9F4"
             app:layout_constraintBaseline_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_userAccount" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_usdNumberAccount" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/txt_currencyKgs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginTop="5dp"
-            android:text="Номер карты:"
-            android:textColor="@color/black"
+            android:layout_marginEnd="16dp"
+            android:text="KGS"
             android:textSize="15sp"
             app:layout_constraintBaseline_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_amountMoney" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_amountMoneyUsd" />
 
         <TextView
-            android:id="@+id/txt_numbOfCards"
+            android:id="@+id/txt_nameAccountKGS"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginTop="5dp"
-            android:text="4562 2145 9874 6521"
-            android:textColor="#000000"
-            android:textSize="20sp"
+            android:layout_marginEnd="16dp"
+            android:text="Банковские счета ИП"
+            android:textSize="15sp"
             app:layout_constraintBaseline_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView1" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_currencyKgs" />
 
         <TextView
-            android:id="@+id/txtView2"
+            android:id="@+id/txt_kgsNumberAccount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Действительна до"
-            android:textSize="15sp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:textColor="#ADAEAE"
-            app:layout_constraintTop_toBottomOf="@+id/txt_numbOfCards" />
+            android:text="1240020000000002"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            app:layout_constraintBaseline_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nameAccountKGS" />
 
         <TextView
-            android:id="@+id/amount_liked"
+            android:id="@+id/txt_amountMoneyKgs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginBottom="16dp"
             android:layout_marginTop="5dp"
-            android:text="02.2028"
+            android:layout_marginEnd="16dp"
+            android:text="71500.3"
+            android:textSize="20sp"
+            android:textColor="#03A9F4"
+            app:layout_constraintBaseline_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_kgsNumberAccount" />
+
+        <TextView
+            android:id="@+id/txt_typeOfAccount2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:text="Депозитные счета:"
+            app:layout_constraintBaseline_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_amountMoneyKgs" />
+
+        <TextView
+            android:id="@+id/txt_currencyKgs2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            android:text="KGS"
+            android:textSize="15sp"
+            app:layout_constraintBaseline_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_typeOfAccount2" />
+
+        <TextView
+            android:id="@+id/txt_nameAccountKgs2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            android:text="Классический 365/факт"
+            android:textSize="15sp"
+            app:layout_constraintBaseline_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_currencyKgs2" />
+
+        <TextView
+            android:id="@+id/txt_openDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            android:text="2023-08-15T00:00:00"
+            android:textSize="15sp"
+            app:layout_constraintBaseline_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nameAccountKgs2" />
+
+        <TextView
+            android:id="@+id/txt_endDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            android:text="2023-08-15T00:00:00"
+            android:textSize="15sp"
+            android:textColor="#E62121"
+            app:layout_constraintBaseline_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_openDate" />
+
+        <TextView
+            android:id="@+id/txt_kgsNumberAccount2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            android:text="1243010000000001"
             android:textSize="20sp"
             android:textColor="@color/black"
+            app:layout_constraintBaseline_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_endDate" />
+
+        <TextView
+            android:id="@+id/txt_amountMoneyKgs2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="100000.3"
+            android:textColor="#03A9F4"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="20sp"
             app:layout_constraintBaseline_toBottomOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtView2" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_kgsNumberAccount2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

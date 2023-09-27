@@ -7,6 +7,6 @@ interface LoginContract {
     }
 
     interface Presenter {
-        fun performLogin(login: String, password: String)
+        fun performLogin(login: String, password: String,  fcmToken: String)
     }
 }

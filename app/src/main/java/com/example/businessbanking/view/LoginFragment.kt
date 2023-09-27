@@ -43,14 +43,25 @@ class LoginFragment : Fragment(), LoginContract.View {
         navController = findNavController()
         val firebaseMessaging = FirebaseMessaging.getInstance()
 
-        presenter = LoginPresenter(this, navController, firebaseMessaging)
-        val localPresenter = presenter
-        binding.btnLogin.setOnClickListener {
-            val username = binding.editTextLogin.text.toString()
-            val password = binding.editTextPassword.text.toString()
-            localPresenter.performLogin(username, password)
+        firebaseMessaging.token.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val fcmToken = task.result
+
+                presenter = LoginPresenter(this, navController, firebaseMessaging)
+                val localPresenter = presenter
+                binding.btnLogin.setOnClickListener {
+                    val username = binding.editTextLogin.text.toString()
+                    val password = binding.editTextPassword.text.toString()
+
+                    if (fcmToken != null) {
+                        localPresenter.performLogin(username, password, fcmToken)
+                    }
+                }
+            } else {
+            }
         }
     }
+
 
 
 //    private fun authSetup() {
